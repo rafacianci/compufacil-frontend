@@ -1,12 +1,7 @@
 FROM rafacianci/yarn-container:latest
 RUN apt-get update --fix-missing \
-    && apt-get install -y hugo -y \
-    && apt-get install build-essential chrpath libssl-dev libxft-dev -y \
-    && apt-get install libfreetype6 libfreetype6-dev -y \
-    && apt-get install libfontconfig1 libfontconfig1-dev -y \
-    && cd ~ \
-    && export PHANTOM_JS="phantomjs-1.9.8-linux-x86_64" \
-    && wget https://bitbucket.org/ariya/phantomjs/downloads/$PHANTOM_JS.tar.bz2 \
-    && tar xvjf $PHANTOM_JS.tar.bz2 \
-    && mv $PHANTOM_JS /usr/local/share \
-    && ln -sf /usr/local/share/$PHANTOM_JS/bin/phantomjs /usr/local/bin
+    && apt-get install -y hugo \
+    && apt-get install -y build-essential chrpath libssl-dev libxft-dev \
+    && apt-get install -y libfreetype6 libfreetype6-dev \
+    && apt-get install -y libfontconfig1 libfontconfig1-dev \
+    && npm install -g karma-phantomjs-launcher \
