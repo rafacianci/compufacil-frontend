@@ -1,6 +1,7 @@
 FROM rafacianci/yarn-container:latest
 ENV PHANTOMJS_VERSION 2.1.1
 RUN apt-get update --fix-missing && \
+      ln -s /usr/bin/nodejs /usr/bin/node && \
       apt-get upgrade -y && \
       apt-get install -y vim git wget libfreetype6 libfontconfig bzip2 && \
       mkdir -p /srv/var && \
